@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   View, 
   Text, 
@@ -10,45 +10,166 @@ import { Ionicons } from '@expo/vector-icons';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 const EducationScreen = () => {
-  const requirements = [
-    {
-      title: 'Mandatory School Age',
-      description: 'Children must attend school until at least 16 years old',
-      icon: 'calendar'
+  const [activeTab, setActiveTab] = useState('DC');
+  const educationData = {
+    'DC': {
+      requirements: [
+        {
+          title: 'Mandatory School Age',
+          description: 'Children must attend school from age 5 until at least 18 years old',
+          icon: 'calendar'
+        },
+        {
+          title: 'School Assignment',
+          description: 'Every home address has assigned elementary, middle, and high schools',
+          icon: 'school'
+        },
+        {
+          title: 'Guaranteed Enrollment',
+          description: 'All K-12 students have guaranteed right to enroll in their boundary school',
+          icon: 'checkmark-circle'
+        },
+        {
+          title: 'Find Your School',
+          description: 'Use DCPS or My School DC to find your assigned schools',
+          icon: 'search'
+        }
+      ],
+      specificInfo: {
+        title: 'DC Public Schools (DCPS)',
+        description: 'In DC every home address has an assigned elementary, middle, and high school. All students eligible for grades K-12 have a guaranteed right to enroll in their in-boundary school. You can find your school through the DCPS or My School DC.'
+      },
+      resources: [
+        {
+          name: 'WASHINGTON ENGLISH CENTER',
+          location: 'Washington D.C.',
+          description: 'Washington English Center es una organización que provee clases para aprender inglés por un precio bajo. Hay clases de grupo y tutoría individual. Estudiantes necesitan tomar una prueba de nivel para determinar sus niveles.',
+          color: '#4ECDC4',
+          icon: 'language'
+        },
+        {
+          name: 'THE FAMILY PLACE',
+          location: 'Washington D.C.',
+          description: 'The Family Place es una organización que ofrece educación y servicios de apoya para familias inmigrantes y familias de bajos ingresos. Ellos provee un prescolar y una guardería para los niños pequeños.',
+          color: '#96CEB4',
+          icon: 'people'
+        },
+        {
+          name: 'DC PUBLIC LIBRARY',
+          location: 'Washington D.C.',
+          description: 'Free ESL classes, computer training, and educational programs for all ages. Multiple locations throughout DC with resources for immigrants and families.',
+          color: '#FFB74D',
+          icon: 'library'
+        }
+      ]
     },
-    {
-      title: 'School Assignment',
-      description: 'Every home address has assigned elementary, middle, and high schools',
-      icon: 'school'
+    'Maryland': {
+      requirements: [
+        {
+          title: 'Mandatory School Age',
+          description: 'Children must attend school from age 5 until 18 years old',
+          icon: 'calendar'
+        },
+        {
+          title: 'County School Systems',
+          description: 'Each county has its own school district with different enrollment procedures',
+          icon: 'school'
+        },
+        {
+          title: 'Residency Requirements',
+          description: 'Must provide proof of Maryland residency for enrollment',
+          icon: 'home'
+        },
+        {
+          title: 'Registration Documents',
+          description: 'Birth certificate, immunization records, and proof of address required',
+          icon: 'document-text'
+        }
+      ],
+      specificInfo: {
+        title: 'Maryland Public Schools',
+        description: 'Maryland has 24 local school systems, one in each of the 23 counties and Baltimore City. Each county operates its own school district. Popular counties include Montgomery County, Prince George\'s County, and Anne Arundel County.'
+      },
+      resources: [
+        {
+          name: 'MONTGOMERY COLLEGE ESL',
+          location: 'Montgomery County, MD',
+          description: 'Comprehensive ESL programs for adults at multiple skill levels. Offers both credit and non-credit courses with flexible scheduling options.',
+          color: '#8E24AA',
+          icon: 'language'
+        },
+        {
+          name: 'CATHOLIC CHARITIES OF MARYLAND',
+          location: 'Statewide Maryland',
+          description: 'Provides education services, ESL classes, and support for immigrant families throughout Maryland. Multiple locations across the state.',
+          color: '#5C6BC0',
+          icon: 'people'
+        },
+        {
+          name: 'MARYLAND STATE LIBRARY',
+          location: 'Statewide Maryland',
+          description: 'Free educational resources, computer access, and adult literacy programs available at library branches throughout Maryland.',
+          color: '#26A69A',
+          icon: 'library'
+        }
+      ]
     },
-    {
-      title: 'Guaranteed Enrollment',
-      description: 'All K-12 students have guaranteed right to enroll in their boundary school',
-      icon: 'checkmark-circle'
-    },
-    {
-      title: 'Find Your School',
-      description: 'Use DCPS or My School DC to find your assigned schools',
-      icon: 'search'
+    'Virginia': {
+      requirements: [
+        {
+          title: 'Mandatory School Age',
+          description: 'Children must attend school from age 5 until 18 years old',
+          icon: 'calendar'
+        },
+        {
+          title: 'Division School Systems',
+          description: 'Virginia has 132 school divisions serving different regions',
+          icon: 'school'
+        },
+        {
+          title: 'Enrollment Process',
+          description: 'Contact local school division for specific enrollment requirements',
+          icon: 'clipboard'
+        },
+        {
+          title: 'ESL Support',
+          description: 'English as a Second Language programs available in most divisions',
+          icon: 'globe'
+        }
+      ],
+      specificInfo: {
+        title: 'Virginia Public Schools',
+        description: 'Virginia has 132 local school divisions. Major areas include Fairfax County, Loudoun County, Prince William County, and Arlington County. Each division has its own enrollment procedures and requirements.'
+      },
+      resources: [
+        {
+          name: 'NORTHERN VIRGINIA COMMUNITY COLLEGE',
+          location: 'Northern Virginia',
+          description: 'Extensive ESL and workforce development programs. Multiple campuses serving Fairfax, Loudoun, Prince William, and surrounding areas.',
+          color: '#FF7043',
+          icon: 'language'
+        },
+        {
+          name: 'LITERACY VOLUNTEERS OF VIRGINIA',
+          location: 'Statewide Virginia',
+          description: 'Free tutoring and ESL classes for adults. Volunteer-based program with locations throughout Virginia.',
+          color: '#66BB6A',
+          icon: 'people'
+        },
+        {
+          name: 'VIRGINIA COMMONWEALTH UNIVERSITY',
+          location: 'Richmond & Norfolk, VA',
+          description: 'Community education programs, ESL classes, and educational support services for immigrant and refugee communities.',
+          color: '#42A5F5',
+          icon: 'school'
+        }
+      ]
     }
-  ];
+  };
 
-  const resources = [
-    {
-      name: 'WASHINGTON ENGLISH CENTER',
-      location: 'Washington D.C.',
-      description: 'Washington English Center es una organización que provee clases para aprender inglés por un precio bajo. Hay clases de grupo y tutoría individual. Estudiantes necesitan tomar una prueba de nivel para determinar sus niveles. Siguente, estudiantes completan un formulario de registro. Finalmente, estudiantes necesitan pagar el costo de matrícula. Haz clique en el enlace para empezar su trayecto de ingles.',
-      color: '#4ECDC4',
-      icon: 'language'
-    },
-    {
-      name: 'THE FAMILY PLACE',
-      location: 'Washington D.C.',
-      description: 'The Family Place es una organización que ofrece educación y servicios de apoya para familias inmigrantes y familias de bajos ingresos. Ellos provee un prescolar y una guardería para los niños pequeños. Además, The Family Place ofrece clases de ingles para adultos. Haz clique en el enlace para aprender más.',
-      color: '#96CEB4',
-      icon: 'people'
-    }
-  ];
+  const requirements = educationData[activeTab].requirements;
+  const resources = educationData[activeTab].resources;
+  const specificInfo = educationData[activeTab].specificInfo;
 
   return (
     <SafeAreaView style={styles.container}>
@@ -59,6 +180,27 @@ const EducationScreen = () => {
           <Text style={styles.headerSubtitle}>
             School requirements and educational resources
           </Text>
+        </View>
+
+        {/* Location Tabs */}
+        <View style={styles.tabContainer}>
+          {['DC', 'Maryland', 'Virginia'].map((location) => (
+            <TouchableOpacity
+              key={location}
+              style={[
+                styles.tab,
+                activeTab === location && styles.activeTab
+              ]}
+              onPress={() => setActiveTab(location)}
+            >
+              <Text style={[
+                styles.tabText,
+                activeTab === location && styles.activeTabText
+              ]}>
+                {location}
+              </Text>
+            </TouchableOpacity>
+          ))}
         </View>
 
         {/* Requirements Section */}
@@ -73,7 +215,7 @@ const EducationScreen = () => {
 
           <View style={styles.dcRequirement}>
             <Text style={styles.dcRequirementText}>
-              In DC every home address has an assigned elementary, middle, and high school. All students eligible for grades K-12 have a guaranteed right to enroll in their in-boundary school. You can find your school through the DCPS or My School DC.
+              {specificInfo.description}
             </Text>
           </View>
 
@@ -173,6 +315,38 @@ const styles = StyleSheet.create({
     color: 'rgba(255,255,255,0.9)',
     fontSize: 16,
     textAlign: 'center',
+  },
+  tabContainer: {
+    flexDirection: 'row',
+    backgroundColor: 'white',
+    marginHorizontal: 20,
+    marginTop: 20,
+    borderRadius: 15,
+    padding: 5,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+  },
+  tab: {
+    flex: 1,
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderRadius: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  activeTab: {
+    backgroundColor: '#0066CC',
+  },
+  tabText: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#666',
+  },
+  activeTabText: {
+    color: 'white',
   },
   section: {
     margin: 20,

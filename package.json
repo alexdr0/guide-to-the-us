@@ -6,7 +6,21 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "build:web": "expo export --platform web",
+    "deploy:web": "./deploy-web.sh",
+    "publish": "expo publish",
+    "update": "eas update --auto",
+    "build:android": "eas build --platform android",
+    "build:ios": "eas build --platform ios",
+    "build:all": "eas build --platform all",
+    "commit": "git add . && git commit -m",
+    "push": "git push origin main",
+    "deploy": "./deploy-complete.sh",
+    "deploy:quick": "npm run commit 'Quick update' && npm run push && npm run update",
+    "version:patch": "npm version patch && git push origin main --tags",
+    "version:minor": "npm version minor && git push origin main --tags",
+    "version:major": "npm version major && git push origin main --tags"
   },
   "dependencies": {
     "@expo/cli": "^0.24.13",
