@@ -1,0 +1,47 @@
+{
+  "expo": {
+    "name": "Guide to the US",
+    "slug": "guide-to-the-us",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "description": "Essential information and resources for immigrants and newcomers to the United States",
+    "primaryColor": "#007AFF",
+    "privacy": "public",
+    "githubUrl": "https://github.com/alexanderbobo/guide-to-the-us",
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "bundleIdentifier": "com.alexanderbobo.guidetotheus",
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.alexanderbobo.guidetotheus",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "edgeToEdgeEnabled": true
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "e67544df-cada-4676-ae0d-0d23561d09c4"
+      }
+    },
+    "owner": "alexanderbobo",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/e67544df-cada-4676-ae0d-0d23561d09c4"
+    }
+  }
+}
