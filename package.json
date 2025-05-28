@@ -14,10 +14,10 @@
     "build:android": "eas build --platform android",
     "build:ios": "eas build --platform ios",
     "build:all": "eas build --platform all",
-    "commit": "git add . && git commit -m",
+    "commit": "./quick-commit.sh",
     "push": "git push origin main",
     "deploy": "./deploy-complete.sh",
-    "deploy:quick": "npm run commit 'Quick update' && npm run push && npm run update",
+    "deploy:quick": "npm run commit 'Quick update' && npm run update",
     "version:patch": "npm version patch && git push origin main --tags",
     "version:minor": "npm version minor && git push origin main --tags",
     "version:major": "npm version major && git push origin main --tags"
